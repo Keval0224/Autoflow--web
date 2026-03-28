@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFlow Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 15 L85 75 L15 75 Z" fill="#1F1F1F" stroke="#383838" stroke-width="2" />
+                    <path d="M50 30 L70 65 L30 65 Z" fill="#141414" />
+                    <path d="M15 85 L50 65 L85 85 L50 95 Z" fill="#357ee5" />
+                </svg>
+                <span>AutoFlow Docs</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#features">Features</a>
+                <a href="../index.html#how-it-works">How It Works</a>
+                <a href="index.html" style="color: var(--text-primary); font-weight: 600;">Docs</a>
+                <a href="https://github.com/autoflow" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <div class="nav-actions">
+                <a href="../index.html#install" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="docs-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="docs-sidebar">
+            <h4>Getting Started</h4>
+            <ul>
+                <li><a href="#installation" class="active">Installation</a></li>
+                <li><a href="#setup">Setup</a></li>
+            </ul>
+            <h4>Core Concepts</h4>
+            <ul>
+                <li><a href="#commands">Commands</a></li>
+                <li><a href="#environment-variables">Environment Variables</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <section class="docs-content">
+            <h1>AutoFlow Documentation</h1>
+            <p>Welcome to the official AutoFlow documentation. Here you'll find comprehensive guides and documentation
+                to help you start working with AutoFlow as quickly as possible.</p>
+
+            <h2 id="installation">Installation</h2>
+            <p>AutoFlow is distributed via npm, which implies you need to have Node.js installed in your environment. To
+                install AutoFlow globally across your system, simply execute the following command in your favorite
+                terminal:</p>
+            <pre><code>npm install -g autoflow-tech</code></pre>
+            <p>Verify that the installation was successful by checking the version:</p>
+            <pre><code>autoflow --version</code></pre>
+
+            <h2 id="setup">Setup</h2>
+            <p>Once you have AutoFlow installed, navigate into an existing web project repository. AutoFlow utilizes
+                intelligent heuristics to identify the framework driving your application (e.g., Next.js, React, Vue,
+                Python/Django, Node.js).</p>
+            <p>Run the initialization sequence to safely set up your environment variables locally and configure
+                deployment behaviors:</p>
+            <pre><code>cd my-awesome-app
+autoflow init</code></pre>
+            <p>This generates a <code>autoflow.json</code> file representing your specific configuration options.</p>
+
+            <h2 id="commands">Commands</h2>
+            <p>The AutoFlow CLI exposes an array of commands prioritizing minimalistic deployment operations.</p>
+
+            <!-- Floating Notification Popup -->
+            <div id="server-popup" style="position: fixed; top: 90px; right: 20px; z-index: 9999; background: #050505; border: 1px solid var(--accent-primary); padding: 1.25rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 320px; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.5s ease; border-left: 5px solid var(--accent-primary);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h4 style="color: var(--accent-primary); margin: 0; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-feather="server" style="width: 18px;"></i> Server Required
+                    </h4>
+                    <button onclick="closePopup()" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 2px;">
+                        <i data-feather="x" style="width: 18px;"></i>
+                    </button>
+                </div>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-primary); line-height: 1.4;">
+                    Before using AutoFlow, please ensure you have an active server (Cloud provider or VPS).
+                </p>
+                <div id="popup-timer" style="height: 3px; background: var(--accent-primary); width: 100%; position: absolute; bottom: 0; left: 0; border-radius: 0 0 12px 12px; transition: width 10s linear;"></div>
+            </div>
+
+            <script>
+                function closePopup() {
+                    const popup = document.getElementById('server-popup');
+                    if(!popup) return;
+                    popup.style.opacity = '0';
+                    popup.style.transform = 'translateX(50px)';
+                    setTimeout(() => popup.style.display = 'none', 500);
+                }
+
+                // Auto-close after 10 seconds
+                setTimeout(() => {
+                    const timer = document.getElementById('popup-timer');
+                    if(timer) timer.style.width = '0%';
+                }, 100);
+
+                setTimeout(closePopup, 10100);
+            </script>
+
+            <p><strong>Essential Commands:</strong></p>
+
+            <div class="terminal-window animate-fade-up" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Install and configure global
+                        dependencies</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow setup</span>
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Select your preferred cloud provider: <span
+                            style="color: var(--accent-primary);">AWS</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Enter your Access Key ID: <span
+                            style="color: #94a3b8;">********************</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Enter your Secret Access Key: <span
+                            style="color: #94a3b8;">****************************************</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Default Region (e.g., us-east-1): <span
+                            style="color: var(--accent-primary);">us-east-1</span></span>
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line"><span class="terminal-success">✔ Global configuration securely
+                            saved.</span></span>
+                </div>
+            </div>
+
+            <div class="terminal-window animate-fade-up delay-1" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Initialize a new autoflow project
+                        locally</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow init</span>
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Enter GitHub Repository URL: <span
+                            style="color: var(--accent-primary);">https://github.com/Keval/my-awesome-app</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">ℹ Cloning repository...</span>
+                    <span class="terminal-line"><span class="terminal-success">✔ Repository cloned
+                            successfully</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">ℹ Scanning project directory...</span>
+                    <span class="terminal-line"><span class="terminal-success">✔ Next.js application
+                            detected</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Project Name: <span
+                            style="color: var(--accent-primary);">my-awesome-app</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Domain/Sub-domain: <span
+                            style="color: var(--accent-primary);">my-awesome-app.com</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Build Command: <span
+                            style="color: var(--accent-primary);">npm run build</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Production Directory: <span
+                            style="color: var(--accent-primary);">.next</span></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">? Port: <span
+                            style="color: var(--accent-primary);">3000</span></span>
+
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line"><span class="terminal-success">✔ autoflow.json configuration file
+                            generated successfully.</span></span>
+                </div>
+            </div>
+
+            <div class="terminal-window animate-fade-up delay-2" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Deploy your application to the server</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow deploy</span>
+                </div>
+            </div>
+
+            <div class="terminal-window animate-fade-up delay-3" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Check the real-time status of your
+                        deployment</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow status</span>
+                </div>
+            </div>
+
+            <div class="terminal-window animate-fade-up delay-1" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Safely stop and spin down your
+                        application</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow stop</span>
+                </div>
+            </div>
+
+            <h2 id="environment-variables">Environment Variables (.env)</h2>
+            <p>AutoFlow simplifies environment variable management for your applications. You can sync your local <code>.env</code> configurations securely to your deployment server with a single command.</p>
+
+            <div class="terminal-window animate-fade-up delay-2" style="margin-bottom: 2rem;">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
+                    <span class="terminal-line" style="color: #94a3b8;"># Sync your local .env file to the server</span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow env push .env</span>
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line" style="color: #e2e8f0;">ℹ Securing environment variables...</span>
+                    <span class="terminal-line"><span class="terminal-success">✔ Environment variables synced and applied successfully.</span></span>
+                </div>
+            </div>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+            <p>If you face any issues preventing a successful setup or deployment, we highly recommend executing
+                diagnostic traces natively:</p>
+            <pre><code>autoflow doctor</code></pre>
+            <p>This command securely analyzes your codebase constraints, DNS conflicts, and credential statuses mapping
+                potential resolutions. In case problems persist, please visit our <a href="https://github.com"
+                    style="color: var(--accent-primary); text-decoration: none;">GitHub Discussions</a> to reach our
+                dedicated support network effortlessly.</p>
+
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

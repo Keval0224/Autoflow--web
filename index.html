@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFlow - Deploy Faster. Smarter. Effortlessly.</title>
+    <meta name="description"
+        content="The ultimate CLI tool for modern developers to automate and streamline deployment pipelines.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <!-- Sleek minimal logo with blue chevron -->
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 15 L85 75 L15 75 Z" fill="#1F1F1F" stroke="#383838" stroke-width="2" />
+                    <path d="M50 30 L70 65 L30 65 Z" fill="#141414" />
+                    <path d="M15 85 L50 65 L85 85 L50 95 Z" fill="#357ee5" />
+                </svg>
+                <span>AutoFlow</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="./docs/index.html">Docs</a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <div class="nav-actions">
+                <a href="./docs/index.html" class="btn btn-outline">View Docs</a>
+                <a href="#install" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-grid">
+            <div class="hero-content animate-fade-up">
+                <h1>Deploy Faster.<br>Smarter.<br><span style="color: var(--accent-primary)">Effortlessly.</span></h1>
+                <p>The modern CLI tool that completely automates your deployment infrastructure. Stop writing complex
+                    build scripts and let AutoFlow handle framework detection, SSL, and atomicity entirely
+                    out-of-the-box.</p>
+                
+                <div class="server-notice animate-fade-up delay-1" style="display: flex; gap: 0.75rem; align-items: center; background: rgba(53, 126, 229, 0.1); padding: 0.75rem 1rem; border-left: 3px solid var(--accent-primary); border-radius: 6px; margin: 1.5rem 0;">
+                    <i data-feather="info" style="width: 18px; color: var(--accent-primary);"></i>
+                    <span style="font-size: 0.85rem; color: var(--text-primary); font-weight: 500;">Notice: Active Server (Cloud/VPS) is required to use AutoFlow.</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#install" class="btn btn-primary">
+                        <i data-feather="terminal"></i> Start Deploying
+                    </a>
+                    <a href="./docs/index.html" class="btn btn-outline">Read Documentation</a>
+                </div>
+            </div>
+            <div class="hero-visual animate-fade-up delay-1">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="terminal-body" id="hero-terminal">
+                        <!-- Content managed by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="animate-fade-up">A Professional Deployment Engine</h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card animate-fade-up delay-1">
+                    <div class="feature-icon">
+                        <i data-feather="cpu"></i>
+                    </div>
+                    <h3>Smart Framework Detection</h3>
+                    <p>AutoFlow instantly detects your robust stack—React, Next.js, Node, Vue, or Python—and configures
+                        everything necessary. Zero config deployment.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card animate-fade-up delay-2">
+                    <div class="feature-icon">
+                        <i data-feather="box"></i>
+                    </div>
+                    <h3>Atomic Deployments</h3>
+                    <p>Zero-downtime guaranteed. Code is staged in isolated environments internally and swaps
+                        identically upon pristine health checks.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card animate-fade-up delay-1">
+                    <div class="feature-icon">
+                        <i data-feather="lock"></i>
+                    </div>
+                    <h3>Auto SSL Setup</h3>
+                    <p>Effortlessly issues, binds, and auto-renews Let's Encrypt certificates per domain. Safe by
+                        default.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card animate-fade-up delay-2">
+                    <div class="feature-icon">
+                        <i data-feather="activity"></i>
+                    </div>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Track metrics natively via CLI. RAM, CPU spikes, response latency, straight from your logs
+                        without clunky dashboards.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-card animate-fade-up delay-3">
+                    <div class="feature-icon">
+                        <i data-feather="shield"></i>
+                    </div>
+                    <h3>Secure Config</h3>
+                    <p>Environment variables strictly injected at boot via secure parameter stores. Encrypted resting
+                        locally and remotely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>From Code to Production in Seconds</h2>
+            <div class="steps-container">
+                <div class="steps-line"></div>
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Setup</h4>
+                    <p>Install AutoFlow globally via npm.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Init</h4>
+                    <p>Run `autoflow init` to detect framework up in your working directory.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Deploy</h4>
+                    <p>Ship to cloud executing `autoflow deploy` instantly.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Monitor</h4>
+                    <p>Trace statuses gracefully with `autoflow logs` dynamically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why AutoFlow Section -->
+    <section class="why-autoflow">
+        <div class="container">
+            <h2>Why AutoFlow?</h2>
+            <table class="comparison-table animate-fade-up">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Traditional Process</th>
+                        <th>AutoFlow CLI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Framework Configuration</td>
+                        <td><span class="icon-x"><i data-feather="x"></i></span> Hours of scripting/YAML debugging</td>
+                        <td><span class="icon-check"><i data-feather="check"></i></span> Auto-detects & applies best
+                            practices</td>
+                    </tr>
+                    <tr>
+                        <td>SSL/TLS Certificates</td>
+                        <td><span class="icon-x"><i data-feather="x"></i></span> Manual certbot triggers, tedious config
+                        </td>
+                        <td><span class="icon-check"><i data-feather="check"></i></span> Automated & Auto-renewed
+                            strictly</td>
+                    </tr>
+                    <tr>
+                        <td>Rollbacks</td>
+                        <td><span class="icon-x"><i data-feather="x"></i></span> Pulling old commits, rebuilding</td>
+                        <td><span class="icon-check"><i data-feather="check"></i></span> Instant `autoflow rollback`
+                            atomic swaps</td>
+                    </tr>
+                    <tr>
+                        <td>Complexity Level</td>
+                        <td><span class="icon-x"><i data-feather="x"></i></span> High, steep DevOps learning curve</td>
+                        <td><span class="icon-check"><i data-feather="check"></i></span> Minimalistic CLI interface
+                            driven</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CLI Showcase -->
+    <section class="cli-showcase">
+        <div class="container">
+            <h2>Interactive CLI Power</h2>
+            <p>Execute complex deployment behaviors reliably through simplest unified commands.</p>
+            <div class="cli-container terminal-window animate-fade-up">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-body" style="text-align: left; min-height: 250px;">
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow init</span>
+                    <span class="terminal-line">✔ Next.js application detected</span>
+                    <span class="terminal-line">✔ Environment file loaded intelligently</span>
+                    <span class="terminal-line"><br></span>
+                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow deploy --production</span>
+                    <span class="terminal-line">⠙ Compiling static assets...</span>
+                    <span class="terminal-line">✔ Asset bundle optimized</span>
+                    <span class="terminal-line">✔ Provisioning internal stage instance</span>
+                    <span class="terminal-line">✔ Swapping load balancer traffic (Atomic)</span>
+                    <span class="terminal-line"><span class="terminal-success">🎉 Successfully deployed to production at
+                            https://myapp.com (4.2s)</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section id="install" class="cta">
+        <div class="container">
+            <h2 class="animate-fade-up">Start deploying in minutes</h2>
+            <p class="animate-fade-up delay-1">Join top-tier developers pushing to production confidently utilizing
+                AutoFlow today.</p>
+
+            <div class="cta-box animate-fade-up delay-2">
+                <span id="npm-code">npm install -g autoflow-tech</span>
+                <button class="btn btn-primary btn-copy" onclick="copyNpmCmd()">
+                    <i data-feather="copy"></i> Copy
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15 L85 75 L15 75 Z" fill="#1F1F1F" stroke="#383838" stroke-width="2" />
+                        <path d="M50 30 L70 65 L30 65 Z" fill="#141414" />
+                        <path d="M15 85 L50 65 L85 85 L50 95 Z" fill="#357ee5" />
+                    </svg>
+                    <span>AutoFlow</span>
+                </a>
+                <p>Deploy with confidence. Modern CLI utility simplifying full-stack deliveries globally seamlessly.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Product</h5>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="./docs/index.html">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">CLI Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="https://github.com">GitHub</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            &copy; 2026 AutoFlow Inc. All rights reserved. Not AI Generated.
+        </div>
+    </footer>
+
+    <!-- Feather Icons JS -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
