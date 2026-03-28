@@ -44,7 +44,6 @@
             <h4>Core Concepts</h4>
             <ul>
                 <li><a href="#commands">Commands</a></li>
-                <li><a href="#environment-variables">Environment Variables</a></li>
                 <li><a href="#troubleshooting">Troubleshooting</a></li>
             </ul>
         </aside>
@@ -208,24 +207,6 @@ autoflow init</code></pre>
                     <span class="terminal-line" style="color: #94a3b8;"># Safely stop and spin down your
                         application</span>
                     <span class="terminal-line"><span class="terminal-prompt"></span>autoflow stop</span>
-                </div>
-            </div>
-
-            <h2 id="environment-variables">Environment Variables (.env)</h2>
-            <p>AutoFlow simplifies environment variable management for your applications. You can sync your local <code>.env</code> configurations securely to your deployment server with a single command.</p>
-
-            <div class="terminal-window animate-fade-up delay-2" style="margin-bottom: 2rem;">
-                <div class="terminal-header">
-                    <div class="terminal-dot red"></div>
-                    <div class="terminal-dot yellow"></div>
-                    <div class="terminal-dot green"></div>
-                </div>
-                <div class="terminal-body" style="min-height: auto; padding: 1.5rem;">
-                    <span class="terminal-line" style="color: #94a3b8;"># Sync your local .env file to the server</span>
-                    <span class="terminal-line"><span class="terminal-prompt"></span>autoflow env push .env</span>
-                    <span class="terminal-line"><br></span>
-                    <span class="terminal-line" style="color: #e2e8f0;">ℹ Securing environment variables...</span>
-                    <span class="terminal-line"><span class="terminal-success">✔ Environment variables synced and applied successfully.</span></span>
                 </div>
             </div>
 
