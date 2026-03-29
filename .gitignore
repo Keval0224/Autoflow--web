@@ -1,5 +1,7 @@
 # AutoFlow
-.env
 autoflow.config.json
 .DS_Store
 Thumbs.db
+
+# AutoFlow Secrets
+.env
