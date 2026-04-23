@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoFlow Documentation</title>
+    <title>AutoFlow documentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -76,25 +76,30 @@ autoflow init</code></pre>
             <p>The AutoFlow CLI exposes an array of commands prioritizing minimalistic deployment operations.</p>
 
             <!-- Floating Notification Popup -->
-            <div id="server-popup" style="position: fixed; top: 90px; right: 20px; z-index: 9999; background: #050505; border: 1px solid var(--accent-primary); padding: 1.25rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 320px; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.5s ease; border-left: 5px solid var(--accent-primary);">
+            <div id="server-popup"
+                style="position: fixed; top: 90px; right: 20px; z-index: 9999; background: #050505; border: 1px solid var(--accent-primary); padding: 1.25rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 320px; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.5s ease; border-left: 5px solid var(--accent-primary);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h4 style="color: var(--accent-primary); margin: 0; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <h4
+                        style="color: var(--accent-primary); margin: 0; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                         <i data-feather="server" style="width: 18px;"></i> Server Required
                     </h4>
-                    <button onclick="closePopup()" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 2px;">
+                    <button onclick="closePopup()"
+                        style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 2px;">
                         <i data-feather="x" style="width: 18px;"></i>
                     </button>
                 </div>
                 <p style="margin: 0; font-size: 0.85rem; color: var(--text-primary); line-height: 1.4;">
                     Before using AutoFlow, please ensure you have an active server (Cloud provider or VPS).
                 </p>
-                <div id="popup-timer" style="height: 3px; background: var(--accent-primary); width: 100%; position: absolute; bottom: 0; left: 0; border-radius: 0 0 12px 12px; transition: width 10s linear;"></div>
+                <div id="popup-timer"
+                    style="height: 3px; background: var(--accent-primary); width: 100%; position: absolute; bottom: 0; left: 0; border-radius: 0 0 12px 12px; transition: width 10s linear;">
+                </div>
             </div>
 
             <script>
                 function closePopup() {
                     const popup = document.getElementById('server-popup');
-                    if(!popup) return;
+                    if (!popup) return;
                     popup.style.opacity = '0';
                     popup.style.transform = 'translateX(50px)';
                     setTimeout(() => popup.style.display = 'none', 500);
@@ -103,7 +108,7 @@ autoflow init</code></pre>
                 // Auto-close after 10 seconds
                 setTimeout(() => {
                     const timer = document.getElementById('popup-timer');
-                    if(timer) timer.style.width = '0%';
+                    if (timer) timer.style.width = '0%';
                 }, 100);
 
                 setTimeout(closePopup, 10100);
